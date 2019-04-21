@@ -163,7 +163,7 @@ Untuk menginsert data, dapat digunakan command
 ```
 INSERT INTO crash(id) values ('1');
 ```
-![]()
+![](https://github.com/TommyHalim/cassandra_single_node/blob/master/SS/INSERT.JPG)
 
 2.4. Mengupdate data
 Untuk mengupdate data, dapat digunakan command
