@@ -115,21 +115,21 @@ Dapat diambil di https://www.kaggle.com/claudiodavi/superhero-set
 
 ### 1. Mengimpor dataset
 
-1.1 Menjalankan perintah cqlsh
-1.2 Membuat keyspace tempat tabel dengan perintah
+1.1. Menjalankan perintah cqlsh untuk masuk ke cassandra
+1.2. Membuat keyspace tempat tabel dengan perintah
 ```
 CREATE KEYSPACE plane WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 } ;
 ```
-1.3 Masuk ke database plane dengan command seperti pada mysql
+1.3. Masuk ke database plane dengan command seperti pada mysql
 ```
 use plane;
 ```
-1.4 Membuat table untuk dataset
+1.4. Membuat table untuk dataset
 tabel yang digunakan seharusnya memiliki kolom yang sama dengan kolom yang ada pada csv
 ```
 CREATE TABLE crash(id text, name text, Gender text, Eye_color text, Race text, Hair_color text, Height text, Publisher text, Skin_color text, Alignment text, Weight text, PRIMARY KEY(id));
 ```
-1.5 Import dataset dari csv ke cassandra dengan menggunakan command
+1.5. Import dataset dari csv ke cassandra dengan menggunakan command
 ```
 COPY crash(id, name, Gender, Eye_color, Race, Hair_color, Height, Publisher, Skin_color, Alignment, Weight) FROM 'heroes.csv' WITH DELIMITER = ',' AND HEADER = TRUE;
 ```
@@ -137,7 +137,7 @@ COPY crash(id, name, Gender, Eye_color, Race, Hair_color, Height, Publisher, Ski
 
 ### 2. CRUD Data
 
-1. Melihat Data
+2.1. Melihat Data
 Untuk melihat seluruh data yang diimport, dapat menggunakan command
 ```
 select * from crash;
@@ -146,19 +146,19 @@ Maka akan dihasilkan output sebagai berikut
 
 ![]()
 
-2. Menghapus Data
+2.2. Menghapus Data
 Untuk menghapus data, dapat dilakukan dengan command
 ```
 DELETE FROM crash WHERE id = '1';
 ```
 
-3. Menginsert data
+2.3. Menginsert data
 Untuk menginsert data, dapat digunakan command
 ```
 INSERT INTO crash(id) values ('1');
 ```
 
-4. Mengupdate data
+2.4. Mengupdate data
 Untuk mengupdate data, dapat digunakan command
 ```
 UPDATE crash SET alignment = 'good' WHERE id = '1';
